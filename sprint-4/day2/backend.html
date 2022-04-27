@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    
+  
+
+    <form id="investorForm">
+        <input id="ivesimg" type="text" placeholder="past img url"/>
+        <input id="name" type="text" placeholder="name of invesor"/>
+        <input id="investorroll" type="text" placeholder="roll of investor"/>
+        <input id="logocompany" type="text" placeholder="company logo"/>
+        <input type="submit"/>
+    </form>
+</body>
+</html>
+<script>
+    let dataarray=JSON.parse(localStorage.getItem("investorarray")) || []
+    document.querySelector("#investorForm").addEventListener("submit",function(event){
+        event.preventDefault();
+        let data=
+            {investorImg:investorForm.ivesimg.value,
+             name:investorForm.name.value,
+             investorposition:investorForm.investorroll.value,
+             companylogo:investorForm.logocompany.value
+            }
+            dataarray.push(data)
+        console.log(dataarray)
+        localStorage.setItem("investorarray",JSON.stringify(dataarray))
+    })
+</script>
