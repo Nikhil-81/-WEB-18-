@@ -1,0 +1,47 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+h1{
+    
+        font-size: 34px;
+    
+        width: auto;
+        height: 50px;
+        color: darkcyan;
+        text-align: center;
+        font-family: monospace
+    
+}
+
+#contenor{
+    display: grid;
+ grid-template-columns: repeat(4 , 1fr);
+ gap: 38px;
+ 
+ 
+}
+
+.proname,
+.proprice,
+button{
+
+    margin-top: 10px;
+}
+
+p.proname {
+    font-size: 13px;
+    color: black;
+    font-weight: 700;
+}
+/* .cards {
+    border: solid orange 1px;
+}
+ */
+
+img.proimg {
+    width: auto;
+    display: block;
+    margin: auto;
+}
