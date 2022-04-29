@@ -18,17 +18,47 @@
     var form =document.querySelector("form");
     var userdata=JSON.parse(localStorage.getItem("userdata")) || 0;
     form.addEventListener("submit",function(event){
+
         event.preventDefault();
 
-        if(userdata==null){
+        if(form.email.value=="" || form.password.value==""){
             alert("plz fill the data")
         }
-        else if(userdata.email===form.email.value && userdata.password===form.password.value){
-            alert ("welcom",userdata.name)
-            window.location.href="index.html"
-        }
+        // else if(userdata.email===form.email.value && userdata.password===form.password.value){
+        //     alert ("welcom",userdata.name)
+        //     window.location.href="index.html"
+        // }
+        // else{
+        //     alert ("error")
+        // }
         else{
-            alert ("error")
+            let ui=form.email.value;
+            let passwo=form.password.value;
+            checkvalidetion(userdata,ui,passwo)
+            if(checkvalidetion(userdata,ui,passwo)){
+                alert("welcom")
+                window.location.href="index.html"
+            }
+            else{
+                alert("email or password is worng")
+            }
         }
+       
+    
+        
     })
+    function  checkvalidetion(userdata,ui,passwo){
+        for(let em=0;em<userdata.length;em++){
+            if(userdata[em].email===ui && userdata[em].password==passwo){
+             return true
+            }
+            else{
+                continue
+                
+
+            }
+            
+        }
+        return false
+    }
 </script>

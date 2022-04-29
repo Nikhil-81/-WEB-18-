@@ -18,6 +18,7 @@
 </html>
 <script>
     var form =document.querySelector("form");
+    let singupdata=JSON.parse(localStorage.getItem("userdata"))|| [];
     form.addEventListener("submit",function(event){
         event.preventDefault();
         var data={
@@ -25,8 +26,9 @@
             email:form.email.value,
             password:form.password.value
         }
-        window.location.href="singin.html"
-        localStorage.setItem("userdata",JSON.stringify(data))
+        singupdata.push(data)
+        // window.location.href="singin.html"
+        localStorage.setItem("userdata",JSON.stringify(singupdata))
        
     })
         
