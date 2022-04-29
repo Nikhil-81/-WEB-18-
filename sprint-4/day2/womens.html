@@ -30,6 +30,16 @@
     </div>
 
 </div>
+<select onchange="filterdata()" id="filterproduct">
+  <option value="none">SORT WITH PRICE</option>
+  <option value="htl">LOW TO HIGH</option>
+  <option value="lth">HIGH TO LOW</option>
+</select>
+<select onchange="filterdataALPHA()" id="filterproductalpha">
+  <option value="none">SORT WITH ALPHA</option>
+  <option value="acc">ASSENDING</option>
+  <option value="dcc">DECESSINDING</option>
+</select>
     <div>
         <h1>WOMENS'S</h1>
         <div id="contenor">
@@ -498,7 +508,9 @@ var womensData = [
       strikedoffprice: 1899,
     },
   ];
-
+display(womensData);
+function display(womensData){
+  document.querySelector("#contenor").innerHTML=[]
   womensData.forEach(function(el){
     let main=document.querySelector("#contenor")
     let card=document.createElement("div")
@@ -543,6 +555,72 @@ document.getElementById("s2").style.cursor="pointer"
   }
 }
 })
+}
+ 
+function filterdata(){
+  let filtervalue=document.getElementById("filterproduct");
+  if(filtervalue.value=="none"){
+   display(womensData)
+  }
+  else if(filtervalue.value=="htl"){
+    womensData.sort(function(a,b){
+      return a.price-b.price
+    })
+   display(womensData)
 
+  }
+  else if(filtervalue.value=="lth"){
+    womensData.sort(function(a,b){
+      return b.price-a.price
+    })
+   display(womensData)
+  
+}
+  }
+function filterdataALPHA(){
+  var filtralpha=document.querySelector("#filterproductalpha")
+let alphavalue=filtralpha.value;
+if(alphavalue=="none"){
+  display(womensData)
+  
+}
+else if(alphavalue=="dcc"){
+  womensData.sort(function(a,b){
+      if(a.name > b.name){
+        return -1;
+        
+      }
+      if(a.name < b.name){
+        return 1;
+       
+
+      }
+       
+        return 0
+      
+    })
+    display(womensData)
+  }
+else if(alphavalue=="acc"){
+  womensData.sort(function(a,b){
+      if(a.name > b.name){
+        return 1;
+        console.log("ok")
+      }
+      if(a.name < b.name){
+        return -1;
+        console.log("ok")
+
+      }
+       
+        return 0
+      
+    })
+    display(womensData)
+
+
+}
+
+}
 
 </script>
