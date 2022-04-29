@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NAvigetion bar</title>
+    <link rel="stylesheet" href="web.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mainpage.css">
 </head>
 <body>
     <div id="nabar">
@@ -29,4 +31,18 @@
 </body>
 </html>
 <script>
+    let navinfo=JSON.parse(localStorage.getItem("accesinit"))
+navfunction (navinfo)
+function navfunction (navinfo){
+  if(navinfo=="allow"){
+    document.getElementById("s1").innerText="user"
+    document.getElementById("s2").innerText="cart"
+
+
+  }
+  else if(navinfo=="Notallow"){
+    document.getElementById("s1").innerText="sing in"
+    document.getElementById("s2").innerText="sing up"
+  }
+}
 </script>

@@ -6,8 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mainpage.css">
+
+
 </head>
-<body>
+<body> 
+  <div id="nabar">
+        
+    <div class="logo">
+        <h1>Masai E-Commers</h1>
+    </div>
+    <div class="text">
+       <h2><a href="mens.html">MEN</a></h2>
+       <h2><a href="womens.html">WOMEN</a></h2>
+       <h2><a href="">KIDS</a></h2>
+
+    </div>
+    <div class="user">
+       <h2 id="s1"><a href="singin.html">SING IN</a></h2>
+       <h2 id="s2"><a href="singup.html">LOG IN</a></h2>
+
+    </div>
+
+</div>
     <div>
         <h1>MEN'S</h1>
         <div id="contenor">
@@ -306,5 +328,24 @@ main.append(card)
     card.append(productImg,productName,productPrice,addcart)
 })
 console.log(document.querySelector("#contenor"))
+
+
+// changing the nev bar if user is singin and singup
+
+let navinfo=JSON.parse(localStorage.getItem("accesinit"))
+navfunction (navinfo)
+function navfunction (navinfo){
+  if(navinfo=="allow"){
+    document.getElementById("s1").innerText="USER"
+    document.getElementById("s2").innerText="CART"
+    document.getElementById("s1").style.cursor="pointer"
+document.getElementById("s2").style.cursor="pointer"
+
+  }
+  else if(navinfo=="Notallow"){
+    document.getElementById("s1").innerText="sing in"
+    document.getElementById("s2").innerText="sing up"
+  }
+}
 
 </script>

@@ -22,6 +22,10 @@ h1{
  
  
 }
+body{
+    display: flex;
+    flex-direction: column;
+}
 
 .proname,
 .proprice,
